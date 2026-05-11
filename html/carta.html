@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta</title>
+    <link rel="stylesheet" href="../css/carta.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="../images/dia_madre.png" class="img-fluid rounded-start" alt="Día de las madres">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Feliz día de las madres</h5>
+        <p class="card-text">Te quiero mucho, mamá.</p>
+        <p class="card-text"><a href="#" class="btn btn-primary" id="continuar">
+    Clic para continuar
+        </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+const boton = document.getElementById("continuar");
+
+boton.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    for(let i = 0; i < 60; i++){
+
+        const heart = document.createElement("div");
+
+        heart.classList.add("heart");
+
+        const corazones = ["💖","💕","💗","💓","💞"];
+
+        heart.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
+
+        // Posición aleatoria
+        heart.style.left = Math.random() * window.innerWidth + "px";
+
+        heart.style.top = Math.random() * window.innerHeight + "px";
+
+        // Tamaño aleatorio
+        heart.style.fontSize = (20 + Math.random() * 30) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+    }
+
+    // Fade de pantalla
+    document.body.classList.add("fade-out");
+
+    // Cambio de página
+    setTimeout(() => {
+        window.location.href = "presentacion.html";
+    }, 2000);
+
+});
+
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
