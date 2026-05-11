@@ -40,7 +40,9 @@ for(let i = 0; i < 200; i++){
             - Math.cos(4 * t));
 
     // Escala
-    const scale = 15;
+    const isMobile = window.innerWidth < 768;
+
+    const scale = isMobile ? 8 : 15;
 
     heart.style.left = (window.innerWidth / 2 + x * scale) + "px";
 
